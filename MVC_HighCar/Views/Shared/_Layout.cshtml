@@ -1,0 +1,152 @@
+﻿@*<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>*@
+
+@*<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>*@
+
+<!DOCTYPE html>
+<!-- Website template by freewebsitetemplates.com -->
+<html ng-app="app">
+<head>
+    <base href="/" />
+    <meta charset="UTF-8">
+    <title>High Car</title>
+    <!--<meta name="viewport" content="width=320px" ></meta>	 -->
+    <!--JQuery-->
+    <script src="~/Scripts/jquery-3.2.1.js"></script>
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+    <!--Angular-->
+    <script type="text/javascript" src="~/Scripts/angular.min.js"></script>
+    @*<script type="text/javascript" src="~/Scripts/angular-route.min.js"></script>*@
+    <script type="text/javascript" src="my_scripts/script_angular.js"></script>
+
+    <!--Fonts-->
+    @*<link href="Images/Audiowide.ttf" rel='stylesheet' type='text/css'>*@
+
+    <!--mycss and my javascript-->
+    <meta name="viewport" content="width=device-width, user-scalable = no, initial-scale=1">
+    
+    <!--<meta name="viewport" content="width=device-width" ></meta>-->
+    <link rel="stylesheet" href="my_css/css_indexMobile.css" type="text/css"
+          media="screen and (max-width: 320px) ">
+
+    <link rel="stylesheet" href="css/style.css" type="text/css"
+          media="screen and  (min-width: 321px)">
+    <link rel="stylesheet" href="my_css/css_index.css" type="text/css"
+          media="screen and (min-width: 321px)">
+
+
+    <script type="text/javascript" src="js/script.js"></script>
+
+</head>
+<body class="body_all" style="">
+
+    <div ng-controller="Control">
+
+
+
+    </div>
+    <header>
+        <div class="header">
+            <a href="index.html" id="logo">
+                <img src="Images/logoh.png" alt="logo">
+            </a>
+            <nav>
+                <ul>
+                    <li class="selected">
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="/Home/Sobrenos">Sobre nós</a>
+                    </li>
+                    <li>
+                        <a href="/Home/Materias">Matérias</a>
+                    </li>
+                    <li>
+                        <a href="/Home/Localizacao">Localização</a>
+                    </li>
+                    @*<li>
+                        <a href="/Home/Localizacao">Produtos</a>
+                    </li>*@
+                </ul>
+            </nav>
+            
+            <a  style="float:right; 
+                position:absolute; 
+                right:0px; top: 125px; 
+                transform:scale(0.8)" 
+                class="btn btn-default btn-sm" href="/Admin/Index">Login</a>
+                            
+        </div>
+
+    </header>
+    <div class="painel_apresentacao">
+        <div class="">
+            <div class="">
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <section>
+        <div class="page">
+            <div class="body">
+
+                <div>
+                    <div ng-view class="content">
+                        <!--Area de carregamento de conteudo externo-->
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+    </section>
+    <footer>
+        <div class="footer">
+            <p>
+                Av. Raimundo Pereira de Magalhães, 8322 - Vila Mirante, São Paulo - SP, 02957-030
+            </p>
+        </div>
+    </footer>
+    </div>
+    </div>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,36 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<html ng-app="app">
+<head>
+    <base href="/" />
+    <meta charset="UTF-8">
+    <title>High Car</title>
+</head>
+<body>
+    <div style="width: 90%; ;">
+        <h2>Materias</h2>
+    </div>
+    <div ng-controller="controller_materias">
+
+        <div ng-repeat="materia in Materias">
+            <div class="media col-md-3">
+                <figure class="pull-left">
+                    <img class="media-object img-rounded img-responsive"
+                         ng-src="/Images_materias/{{materia.Imagem[0].urlImagem}}" alt="">
+                </figure>
+            </div>
+            <div class="col-md-9">
+                <h4 class="list-group-item-heading"> {{materia.Titulo}} </h4>
+                <p class="list-group-item-text">
+                    {{materia.Texto}}
+                </p>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+</html>

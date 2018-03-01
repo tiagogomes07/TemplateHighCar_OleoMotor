@@ -1,0 +1,34 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-4">
+</div>
+
+<div class="col-md-4 col-md-offset">
+
+    <div class="form-group">
+
+
+        <h1>Area Administrativa</h1>
+
+        <br />
+        <label>Por favor insira suas credenciais</label>
+
+        <br />
+        <label>Login</label>
+        <input ng-model="login.UserName" class="form-control" type="text">
+        <br/>
+        <label>Password</label>
+        <input ng-model="login.Password" class="form-control" type="password">
+        <br/>
+        <div style="margin: auto; text-align:center;">
+
+            <input ng-click="LogIn()" class="btn btn-primary" type="button" value="Submit">
+            <div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

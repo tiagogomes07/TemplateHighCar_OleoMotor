@@ -1,0 +1,172 @@
+<html ng-app="app">
+    <head>
+        <base href="/" />
+        <meta charset="UTF-8">
+        <title>High Car Servicos Automotivos</title>
+        <link href="css/bootstrap.min.css"> 
+        
+
+        			<!--JQuery-->
+		<script src="jquery/jquery-3.1.1.min.js" ></script>	
+		
+		<!--Bootstrap-->
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" >
+		<script 				src="bootstrap/js/bootstrap.min.js" ></script>
+
+
+        <meta name="viewport" content="width=320px" ></meta>
+		<!--<meta name="viewport" content="width=device-width" ></meta>-->
+		<link rel="stylesheet" href="my_css/css_indexMobile.ss"   type="text/css" 
+		media="screen and (max-width: 320px) ">
+
+        <!--media="screen and  (min-width: 321px)"-->
+        <link rel="stylesheet" href="my_css/home.css" type="text/css" media="screen and  (min-width: 321px)" >
+
+
+    </head>
+    <body>
+
+        <style>
+            /*necessario para rodar a barra de rolagem*/
+            .corpo {
+                height: 100%;
+              /*  background-color: purple; */
+                overflow: auto;
+            }
+
+            #bottom {
+                display: block;
+                margin-top: 100%;
+              /*  background-color: purple; */
+            }
+        </style>
+
+        <div class="corpo"autoscroll="true"  ng-controller="controller_produtos">
+            <style>
+
+            </style>
+
+            
+                <div class="sidebar col-md-3">
+                    <div>
+                        <aside>
+                            <div class="sidebar_videos">
+                                <h3>Tudo Sobre Óleo</h3>
+                                <ul>
+                                    <li>
+                                        <h4><a id="video1"> >Óleo - Quando trocar </a></h4>
+                                        <br/>
+                                    </li>
+                                    <li>
+                                        <h4><a id="video2"> >Diferenças de tipos de oélo </a></h4>  
+                                        <br/>
+                                    </li>
+                                    <li>
+                                        <h4><a id="video3"> >Troca de óleo de cmbio </a> </h4>  
+                                        <br/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </aside>
+                    </div>
+                <div>
+                    <aside>
+                        <div class="sidebar_materias">
+                            <h3>Cuidados com o seu carro</h3>
+                            <ul>
+                                <li>
+                                    <h4><a > >Rodízio de pneus</a></h4>
+                                        </br>
+                                </li>
+                                <li>
+                                    <h4><a > >Cuidado com ar condicionado</a></h4>
+                                        </br>
+                                </li>
+                            </ul>
+                        </div>
+                    </aside>                 
+                </div>
+            </div>
+                <script>
+                    $(document).ready(function(){
+                        $("#carousel01").carousel({interval: 2000});
+                         console.log("On #carousel01!")          
+                    })
+                </script>
+                <div id="carousel01" class="carousel slide col-md-5" data-ride="carousel" >
+                    
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel01" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel01" data-slide-to="1"></li>
+                        <li data-target="#carousel01" data-slide-to="2"></li>
+                        <li data-target="#carousel01" data-slide-to="3"></li>
+                    </ol>
+
+                    <div class="carousel-inner"  role="listbox">
+                        <div class="item active">
+                            <img src="Images/fotosLoja/1.jpeg"  alt="Imagem escrito Foto1" >
+                            <div class="carousel-caption"> within each </div>
+                        </div>
+                        <div class="item">
+                            <img src="Images/fotosLoja/6.jpeg"  alt="Imagem escrito Foto2" >
+                            <div class="carousel-caption"> within each </div>
+                        </div>
+
+                        <div class="item">
+                            <img src="Images/fotosLoja/7.jpeg"  alt="Imagem escrito Foto2" >
+                            <div class="carousel-caption"> within each </div>
+                        </div>
+
+                        <div class="item">
+                            <img src="Images/fotosLoja/11.jpeg"  alt="Imagem escrito Foto2" >
+                            <div class="carousel-caption"> within each </div>
+                        </div>
+                    </div>
+                </div> 
+            
+        
+
+        <!--Inicio do barra-->
+        <a ng-click="gotoBottom()"></a> 
+
+        <div class="produtos_in">
+            
+            <div class="ofertas">
+                Confira nossas ofertas!  
+                </br>  
+            </div>
+            </br>
+            <div ng-repeat="produto in Produtos | orderBy:'Ordem' " class="col-md-3 ">
+                    <span class="thumbnail">
+                        <img ng-src="/Imagens_upload/{{produto.Imagem[0].urlImagem}}" height="128px" weight="160" alt="...">
+                        <h4>{{produto.Nome}}</h4>
+                        <div class="ratings">
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                        </div>
+                        <p></p>
+                        <hr class="line">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p class="Preco_produtos" style="color: white; text-align: center"  >
+                                     R{{produto.Preco | currency }} </p>
+                            </div>
+                            <div class=" col-md-3">
+                            
+                            </div>
+                        </div>
+                    </span>
+                </div>  
+            </div><!--produos in-->
+            <!--Fim da barra-->
+            <a id="bottom">ok</a> 
+        </div>
+
+
+           
+      
+    </body>
+</html>

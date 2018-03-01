@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!-- Website template by freewebsitetemplates.com -->
+<html ng-app="app">
+<head>
+	<base href="/" />
+	<meta charset="UTF-8">
+	<title>High Car</title>
+	<!--<meta name="viewport" content="width=320px" ></meta>	 -->
+		
+			<!--JQuery-->
+		<script src="jquery/jquery-3.1.1.min.js" ></script>	
+		
+		<!--Bootstrap-->
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" >
+		<script 				src="bootstrap/js/bootstrap.min.js" ></script>
+		
+		<!--Angular-->
+		<script type="text/javascript" src="angular/angular.min.js"></script> 
+		<script type="text/javascript" src="angular/angular-route.min.js"></script>  
+		<script type="text/javascript" src="my_scripts/script_angular.js"></script>  
+
+		<!--Fonts-->
+		<link href="Images/Audiowide.ttf" rel='stylesheet' type='text/css'>
+
+		<!--mycss and my javascript-->
+		<!--<meta name="viewport" content="width=device-width, user-scalable = no, initial-scale=1">-->
+		<meta name="viewport" content="width=320px" ></meta>
+		<!--<meta name="viewport" content="width=device-width" ></meta>-->
+		<link rel="stylesheet" href="my_css/css_indexMobile.css"   type="text/css" 
+		media="screen and (max-width: 320px) ">
+		
+		<link rel="stylesheet" href="css/style.css"         type="text/css" 
+		media="screen and  (min-width: 321px)" >
+		<link rel="stylesheet" href="my_css/css_index.css"  type="text/css" 
+		media="screen and (min-width: 321px)" >
+
+		
+		<script type="text/javascript" src="js/script.js"></script>   
+    
+</head>
+<body class="body_all"  style="">
+
+<div ng-controller="Control">
+
+
+
+ </div>
+		<header>
+			<div class="header">
+				<a href="index.html" id="logo">
+					<img src="Images/logoh.png" alt="logo">
+				</a>
+				<nav>
+					<ul>
+						<li class="selected">
+							<a href="/">Home</a> 
+						</li>
+						<li>
+							<a href="Sobrenos">Sobre nós</a> 
+						</li>
+						<li>
+							<a href="Materias">Matérias</a> 
+						</li>
+						<li>
+							<a href="Localizacao">Localização</a> 
+						</li>
+					</ul>
+				</nav>
+			</div>
+
+		</header>
+		<div  class="painel_apresentacao" >
+			<div class="">	
+				<div class="" >
+					
+				</div>		
+				            
+			</div>
+			
+ 		</div>
+
+
+
+		<section>
+			<div class="page">					
+				<div class="body">
+					
+					<div >
+						<div ng-view class="content">
+							<!--Area de carregamento de conteudo externo-->	
+						</div>
+					</div>
+			</div>
+		</section>
+		<footer>
+			<div class="footer">
+				<p>
+					Av. Raimundo Pereira de Magalhães, 8322 - Vila Mirante, São Paulo - SP, 02957-030	
+				</p>
+			</div>
+		</footer>
+	</div>
+  </div>  
+</body>
+</html>

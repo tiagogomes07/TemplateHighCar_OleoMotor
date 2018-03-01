@@ -1,0 +1,283 @@
+﻿<!DOCTYPE html >
+<html ng-app="app">
+    <head>
+		<base href="/" />
+        <title>Higcar - Adm</title>
+        <meta charset="utf-8"/>
+		<meta name="description" content=""/>
+
+		<!--JQuery ok-->
+		<script src=" https://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+		<!--Angular-->
+		<script type="text/javascript" src="angular/angular.min.js"></script>
+		<script type="text/javascript" src="angular/angular-route.min.js"></script>
+		<script type="text/javascript" src="angular/validate.js"></script>
+		<script type="text/javascript" src="angular/angular-sanitize.min.js	"></script>
+		<script type="text/javascript" src="angular/ui-utils.min.js"></script>
+
+		<!--Bootstrap ok-->
+		<link   rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
+		<script type="text/javascript" src="../bootstrap/js/bootstrap.min.js" ></script>
+
+		<!--Css ok-->
+		<link rel="stylesheet" href="../my_css/css_cadastro_produto.css"  />
+		<link rel="stylesheet" href="croppic/assets/css/croppic.css"  />
+		<link rel="stylesheet" href="croppic/assets/css/main.css"  />
+
+		<!--Croppic ok-->
+		<script type="text/javascript" src="../croppic/croppic.js"></script>
+		<script type="text/javascript" src="../croppic/assets/js/jquery.mousewheel.min.js"></script>
+		<script type="text/javascript" src="../my_scripts/script_ini_croppic.js"></script>
+
+		<!--My Scripts ok-->
+	
+		<script type="text/javascript" src="../my_scripts/script_angular.js"></script>
+
+
+
+
+
+    </head>
+<body >
+	<div class="container">
+    	<!--<div class="row">-->
+				<div class="well">
+					<h1 class="h1">Area Gerencial Administrativa</h1>
+				</div>
+				<!--menu navegação-->
+					<ul class="nav nav-tabs">
+						<li class="active">
+							<a data-toggle="tab" href="#produtos">Produtos</a></li>
+						<li><a data-toggle="tab" href="#materias">Matérias</a></li>
+					</ul>
+				<br>
+				<br>
+			<div class="tab-content">
+				<div id="produtos" ng-controller="controller_produtos" class="tab-pane fade in active">
+					<input class="btn btn-primary" style="width: 100%" ng-click="OpenModalCreate()" type="button" value="Inserir Novo Produto">
+					<button  id="btnModal" type="button" class="btn  btn-primary"
+					style="display: none" data-toggle="modal" data-target="#myModal">
+					Inserir novo Produto
+					</button>
+					</br>
+					</br>
+						<table class="table">
+							<tr>
+								<td>Ordem Produto</td>
+								<td>Imagem</td>
+								<td>Titulo</td>
+								<td>Detalhes</td>
+								<td>Preço</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr ng-repeat="produto in Produtos" class="listaProdutos">
+								<td>{{produto.Ordem}}</td>
+								<td>
+									<img ng-src="Imagens_upload/{{produto.Imagem[0].urlImagem}}" />
+								</td>
+								<td>{{produto.Nome}} </td>
+								<td>{{produto.Detalhes}}</td>
+								<td style="text-align: right"
+								>  {{ produto.Preco  | currency:'R$ '  }}    </td>
+
+								<td><a class="" ng-click=""> </a></td>
+								<td><a class="glyphicon glyphicon-pencil" ng-click="OpenModalEdit(produto)"> </a></td>
+								<td><a class="glyphicon glyphicon-trash"  ng-click="OpenModalDelete(produto)"></a></td>
+							</tr>
+						</table>
+						<!-- Button trigger modal -->
+						<div class="col-md-12">
+							<!-- Modal -->
+							<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+								<div class="modal-dialog modal-lg" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+											<h4 class="modal-title" id="myModalLabel">Cadastrar Produto</h4>
+										</div>
+										<div class="modal-body">
+											<div class="row">
+												<div class="col-md-4">
+													<div class="form-group">
+														<div>
+															<div id="yourId">
+															</div>
+														</div>
+														<input style="display: none" type="text" id="myOutputId" required>
+													</div>
+												</div>
+												
+
+												<div class="col-md-8">
+													<form>
+														<div class="col-md-12">
+															<label>Nome Produto</label>
+															<input type="text"  class="form-control"
+															ng-model="produto.Nome" required>
+														</div>
+
+														<div class="col-md-12">
+															<label>Detalhes</label>
+															<input type="text"  class="form-control"
+															ng-model="produto.Detalhes" required>
+														</div>
+
+														<div class="col-md-6">
+															<label>Ordem</label>
+															<input type="number"  class="form-control"
+															ng-model="produto.Ordem">
+														</div>
+														<div class="col-md-6">
+															<label>Preco</label>
+															<input type="text"  class="form-control"
+															ng-model="produto.Preco" 
+															style="text-align: right; "
+															>
+
+														<div class="modal-footer">
+															<!--<span><p style="color: red"  ng-show="deleteMode">Aviso: Este item será permanentemente deletado! </p></span>-->
+															<!--<input  id="btnSalvar" type="submit" class="btn btn-success" ng-click="SalvarProduto()" value="Salvar" ng-show="saveMode">-->
+															<!--<input  id="btnSalvarEdicao" type="submit" class="btn btn-warning" ng-click="EditarProduto()" value="Salvar Edição" ng-show="editMode"> -->
+															<!--<input  id="btnDelete" type="button" class="btn btn-danger" ng-click="DeleteProduto()" value="Delete" ng-show="deleteMode">-->
+															<!--<button id="btnFechar" type="button" class="btn btn-primary" data-dismiss="modal">Close</button>-->
+														</div>
+															<div  class="col-md-12" style="padding-left: 0px; padding-right: 0px; padding-top: 10px;">
+																	<span><p ng-show="deleteMode" style="color: red ;text-align: center">Aviso: Este item será permanentemente deletado! </p></span>
+																<div class="col-md-6" >
+																	<div class="">
+																	<input  id="btnSalvar"  type="submit" class="btn btn-primary col-md-12 " ng-click="SalvarProduto()" value="Salvar" ng-show="saveMode">
+																	<input  id="btnSalvarEdicao" type="submit" class="btn btn-warning col-md-12 " ng-click="EditarProduto()" value="Salvar" ng-show="editMode">
+																	<input  id="btnDelete" type="button" class="btn btn-danger col-md-12" ng-click="DeleteProduto()" value="Delete" ng-show="deleteMode">
+																	</div>
+																</div>
+																<div class="col-md-6">
+																	<div class="">
+																	<button id="btnFechar" type="button" class="btn btn-success col-md-12" data-dismiss="modal">Fechar</button>
+																	</div>
+																</div>
+															</div>
+													</form>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div><!--divCOL12-->	
+        		</div> <!--produtos>-->
+				</div>
+				<br/>
+				<div id="materias" ng-controller="controller_materias" class="tab-pane fade">
+					<input class="btn btn-success" style="width: 100%" ng-click="OpenModalMaterias()" type="button" value="Inserir Nova Materia">
+					<br/>
+					<br/>
+					<table class="table">
+						<tr>
+							<th>Ordem</th>
+							<th>Foto</th>
+							<th>Titulo</th>
+							<th>Texto</th>
+							<th></th>
+							<th></th>
+						</tr>
+						<tr ng-repeat="materia in materias">
+							<td>{{materia.Ordem}}</td>
+							<td>
+								<img ng-src="Imagens_upload/{{materia.Imagem[0].urlImagem}}" />
+							</td>
+							<td>{{materia.Titulo}}</td>
+							<td>{{materia.Texto}}</td>
+							<td><a class="glyphicon glyphicon-pencil" ng-click="OpenMateriaEdit(materia)"> </a></td>
+							<td><a class="glyphicon glyphicon-trash"  ng-click="OpenMateriaDelete(materia)"></a></td>
+						</tr>
+					</table>
+					<br/>
+					<div class="modal fade" id="Modalmateriais" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+								<div class="modal-dialog modal-lg" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+											<h4 class="modal-title" id="myModalLabel" ng-show="saveModeMateria">Cadastrar Materias</h4>
+											<h4 class="modal-title" id="myModalLabel" ng-show="editModeMateria">Editar Materias</h4>
+											<h4 class="modal-title" id="myModalLabel" ng-show="deleteModeMateria" style="color:red">Deletar Materias</h4>
+										</div>
+										<div class="modal-body">
+											<div class="row">
+												<div class="col-md-4">
+													<div class="form-group">
+														<div>
+															<div id="photo_Materia">
+															</div>
+														</div>
+														<input style="display: none" type="text" id="Out_Put_photo_Materia" required>
+														<style>
+															#photo_Materia {
+																		width: 275px;
+																		height: 312px;
+																		position: relative;
+																		border-color: #ccc;
+																		border-style: solid;
+																		border-width: 1px;
+																		border-radius: 4px;
+																	}		
+														</style>
+													</div>
+												</div>
+												
+
+												<div class="col-md-8">
+													<form>
+														<div class="col-md-12">
+															<label>Titulo Materia</label>
+															<input type="text"  class="form-control"
+															ng-model="materia.Titulo" required>
+														</div>
+
+
+														<div class="col-md-12">
+															<label>Ordem</label>
+															<input type="number"  class="form-control"
+															ng-model="materia.Ordem">
+														</div>
+														<div class="col-md-12">
+															<label>Texto</label>
+															<textarea  class="form-control"
+															ng-model="materia.Texto" ></textarea>
+
+														<div class="modal-footer">
+														</div>
+															<div  class="col-md-12" style="padding-left: 0px; padding-right: 0px; padding-top: 10px;">
+																	<span><p ng-show="deleteMode" style="color: red ;text-align: center">Aviso: Este item será permanentemente deletado! </p></span>
+																<div class="col-md-6" >
+																	<div class="">
+																	<input  id="btnSalvar"  type="submit" class="btn btn-primary col-md-12 " ng-click="SalvarMateria(materia)" value="Salvar" ng-show="saveModeMateria">
+																	<input  id="btnSalvarEdicao" type="submit" class="btn btn-warning col-md-12 " ng-click="EditarMateria(materia)" value="Salvar" ng-show="editModeMateria">
+																	<input  id="btnDelete" type="button" class="btn btn-danger col-md-12" ng-click="DeleteMateria(materia)" value="Delete" ng-show="deleteModeMateria">
+																	</div>
+																</div>
+																<div class="col-md-6">
+																	<div class="">
+																	<button id="btnFechar" type="button" class="btn btn-success col-md-12" data-dismiss="modal">Fechar</button>
+																	</div>
+																</div>
+															</div>
+													</form>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+				
+				</div>
+				
+				
+				
+         
+			</div> 	<!--tab content-->
+		</div> <!--container-->
+</body>
+</html>
